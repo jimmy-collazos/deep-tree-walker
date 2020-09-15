@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box">
+    <my-component>a</my-component> <!-- CustomElement con ShadowDom -->
+    <a href="#">link</a>
+  </div>
+  <script type="module">
+    import {createDeepTreeWalkerIterator} from '../esm/index.js';
+    import './fixture.js';
+
+    let gen;
+    const root = document.querySelector('#box');
+    // Uso básico
+    gen = createDeepTreeWalkerIterator(root);
+    console.group('Uso básico');
+    console.log(gen.next().value); // <my-component><my-component>
+    console.log(gen.next().value); // <a href="#"></a>
+    console.log(gen.next().value); // undefined
+    console.groupEnd();
+
+    // filtrando por el tipo de nodo
+    gen = createDeepTreeWalkerIterator(root, NodeFilter.SHOW_COMMENT);
+    console.group('filtrando por el tipo de nodo');
+    console.log(gen.next().value); // <!-- CustomElement con ShadowDom -->
+    console.log(gen.next().value); // undefined
+    console.groupEnd();
+
+    // filtrando usando una función propia
+    gen = createDeepTreeWalkerIterator(root, NodeFilter.SHOW_ELEMENT, (node) => 
+        node.tagName === 'A' ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP);
+    console.group('filtrando usando una función propia');
+    console.log(gen.next().value); // <a href="#"></a>
+    console.log(gen.next().value); // undefined
+    console.groupEnd();
+  </script>
+</body>
+</html>
+
