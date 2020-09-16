@@ -1,22 +1,14 @@
 const {document, NodeFilter} = self;
 
-export function* createDeepTreeWalkerIterator(root, whatToShow = NodeFilter.SHOW_ELEMENT, acceptNodeFilter = () => NodeFilter.FILTER_ACCEPT ) {
-  const acc = [];
-  const nodeFilter = {
-    acceptNode(node) {
-      if(node.shadowRoot) acc.push(node.shadowRoot);
-      return acceptNodeFilter(node);
-    }
-  }
-  const treeWalker = document.createTreeWalker(root, whatToShow, nodeFilter);
+export function* createDeepTreeWalkerIterator(root, whatToShow = NodeFilter.SHOW_ELEMENT, ...args) {
+  const treeWalker = document.createTreeWalker(root, whatToShow, ...args);
   let currentNode = treeWalker.nextNode();
 
   while(currentNode) {
     yield currentNode;
+    if(currentNode.shadowRoot){
+      yield* createDeepTreeWalkerIterator(currentNode.shadowRoot, whatToShow, ...args);
+    }
     currentNode = treeWalker.nextNode();
-  }
-
-  for (let i = 0; i < acc.length; i++) {
-    yield* createDeepTreeWalkerIterator(acc[i], whatToShow, acceptNodeFilter);
   }
 }

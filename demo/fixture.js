@@ -6,6 +6,10 @@ export class MyComponentElement extends HTMLElement {
     super();
     this.attachShadow({mode: 'open'});
   }
+
+  connectedCallback() {
+    this.shadowRoot.innerHTML = '<span>shadow</span>';
+  }
 }
 
 customElements.define(MyComponentElement.is, MyComponentElement);

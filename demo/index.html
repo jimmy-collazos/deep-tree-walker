@@ -20,6 +20,7 @@
     gen = createDeepTreeWalkerIterator(root);
     console.group('Uso básico');
     console.log(gen.next().value); // <my-component><my-component>
+    console.log(gen.next().value); // <span>shadow</span>
     console.log(gen.next().value); // <a href="#"></a>
     console.log(gen.next().value); // undefined
     console.groupEnd();
