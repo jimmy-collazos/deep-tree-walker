@@ -1,6 +1,6 @@
 {
   "name": "deep-tree-walker",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Recorrer el DOM y el Shadow DOM",
   "main": "./cjs/index.js",
   "scripts": {
