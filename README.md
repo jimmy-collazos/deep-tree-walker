@@ -31,16 +31,14 @@ El recorrido de los nodos se realiza siguiendo el esquema de [Busqueda en anchur
 
 ### __Sintaxis__
 ```javascript
-createTreeWalker(root, [whatToShow[, acceptNodeFilter]]);
+createDeepTreeWalkerIterator(nodeRoot, [whatToShow[, filter]]);
 ```
 
 ### _Parámentros_
 
-* **root**: Nodo raíz a partir del cual se comienza a explorar
+* **nodeRoot**: Nodo raíz a partir del cual se comienza a explorar
 * **whatToShow** (_opcional_): Es un valod de tipo `unsigned long` que se utilizar para especesifivar el típo de nodos que se quiere recorrer ([ver especificación](https://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeFilter)). El valor por defecto es *NodeFilter.SHOW_ELEMENT*
-* **acceptNodeFilter** (_opcional_): Función que evalua si un nodo es valido; en caso de válido se aplicará la regla de **whatToShow** para ser evaluado. En caso de ser válido; el nodo será devuelto en la siguiente iteración. Esta función deve devolver una de las constantes:
-  * NodeFilter.FILTER_ACCEPT  __:__ _En caso de ser válido_
-  * NodeFilter.FILTER_SKIP __:__ En caso de ser inválido
+* **filter** (_opcional_): Objeto con la interfáz de [NodeFilter](https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter)
 
 ### _Valor devuelto_
 
