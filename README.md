@@ -4,11 +4,9 @@
 # Deep Tree Walker
 
 <p align="center">
-    <img alt="Formato de exportación: UMD, IFFIE, ESM" src="https://img.shields.io/badge/fomat-umd%20iffie%20esm-yellowgreen" />
-    <img alt="Distribución: Npm, Unpackage" src="https://img.shields.io/badge/%F0%9F%93%A6-npm%20unpk-yellowgreen" />
-    <img alt="Distribución: Npm, Unpackage" src="https://img.shields.io/badge/ISC-license-yellowgreen" />
-
-
+  <img alt="Formato de exportación: UMD, IFFIE, ESM" src="https://img.shields.io/badge/fomat-umd%20iffie%20esm-yellowgreen" />
+  <img alt="Distribución: Npm, Unpackage" src="https://img.shields.io/badge/%F0%9F%93%A6-npm%20unpk-yellowgreen" />
+  <img alt="Distribución: Npm, Unpackage" src="https://img.shields.io/badge/ISC-license-yellowgreen" />
 </p>
 
 ## Uso
