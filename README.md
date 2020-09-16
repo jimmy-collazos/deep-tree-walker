@@ -29,7 +29,7 @@ import {createDeepTreeWalkerIterator} from 'https://unpkg.com/deep-tree-walker?m
 
 Esta función permite recorrer por todos los elementos del DOM, examentamente igual que [TreeWalker]() con el añadido que también accede a los elmenentos del [Shadow Tree](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM#High-level_view).
 
-El recorrido es [perezoso](https://es.wikipedia.org/wiki/Evaluaci%C3%B3n_perezosa); para mejorar el rendimiento; por lo que se expone un [iterador](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#iterator).
+El recorrido de los nodos se realiza siguiendo el esquema de [Busqueda en anchura (anchura-primero)](https://es.wikipedia.org/wiki/Recorrido_de_%C3%A1rboles). Además la ejecución es [perezosa](https://es.wikipedia.org/wiki/Evaluaci%C3%B3n_perezosa); para mejorar el rendimiento; por lo que se expone un [iterador](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#iterator) para ir recorriendo el DOM según la necesidad.
 
 ### __Sintaxis__
 ```javascript
